@@ -2,10 +2,11 @@ import * as go from 'gojs';
 import { ReactDiagram } from 'gojs-react';
 import './App.css';
 
-import SerpentineLayout from './SerpentineLayout';
-import DoubleTreeLayout from './DoubleTreeLayout';
-import ParallelLayout from './ParallelLayout';
+// import SerpentineLayout from './SerpentineLayout';
+// import DoubleTreeLayout from './DoubleTreeLayout';
+// import ParallelLayout from './ParallelLayout';
 import LineBreakLayout from './LineBreakLayout';
+// import SwimLaneLayout from './SwimLaneLayout';
 
 function initDiagram() {
   const $ = go.GraphObject.make;
@@ -13,21 +14,11 @@ function initDiagram() {
   const diagram = $(go.Diagram, {
     'undoManager.isEnabled': true, // must be set to allow for model change listening
     /* layout: $(go.LayeredDigraphLayout, {
-      layerSpacing: 200,
-      setsPortSpots: false,
+      // layerSpacing: 200,
+      // setsPortSpots: false,
     }), */
-    /* layout: $(SerpentineLayout, {
-      layerSpacing: 200,
-      setsPortSpots: false,
-    }), */
-    /* layout: $(go.TreeLayout, {
-      layerSpacing: 200,
-    }), */
-    // layout: $(DoubleTreeLayout, {}),
-    // layout: $(ParallelLayout, {}),
     layout: $(LineBreakLayout, {
-      layerSpacing: 200,
-      setsPortSpots: false,
+      layerSpacing: 300,
     }),
     model: $(go.GraphLinksModel, {
       linkKeyProperty: 'key',

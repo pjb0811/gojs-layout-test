@@ -5270,6 +5270,18 @@ globby@^6.1.0:
     pify "^2.0.0"
     pinkie-promise "^2.0.0"
 
+gojs-react@^1.0.10:
+  version "1.0.10"
+  resolved "https://registry.yarnpkg.com/gojs-react/-/gojs-react-1.0.10.tgz#e9936999d6a5003cce56377d2204126deb0b1458"
+  integrity sha512-kHUNMo9U0WoaAGugIysxJRevvWL+D1Y+alhdaW2zkJrs3NG6PMzDHLTlIrUdaUe7816r4Fse8CvaURpShoJGgA==
+  dependencies:
+    tslib "^2.0.3"
+
+gojs@^2.1.32:
+  version "2.1.32"
+  resolved "https://registry.yarnpkg.com/gojs/-/gojs-2.1.32.tgz#6225e5833f7f6f84b92d978aa0df61e5a1b6d5f0"
+  integrity sha512-tqoexM4pxJWtwiDLEc+ywU3IRC3omSOuBkSS/r4ax+q4qMXP4/BDBsufiJKuUyCASIJLkFgc0ajkGy/SCxt7gQ==
+
 graceful-fs@^4.1.11, graceful-fs@^4.1.15, graceful-fs@^4.1.2, graceful-fs@^4.1.6, graceful-fs@^4.2.0, graceful-fs@^4.2.4:
   version "4.2.4"
   resolved "https://registry.yarnpkg.com/graceful-fs/-/graceful-fs-4.2.4.tgz#2256bde14d3632958c465ebc96dc467ca07a29fb"
@@ -10505,6 +10517,11 @@ tslib@^1.10.0, tslib@^1.8.1, tslib@^1.9.0:
   version "1.14.1"
   resolved "https://registry.yarnpkg.com/tslib/-/tslib-1.14.1.tgz#cf2d38bdc34a134bcaf1091c41f6619e2f672d00"
   integrity sha512-Xni35NKzjgMrwevysHTCArtLDpPvye8zV/0E4EyYn43P7/7qvQwPh9BGkHewbMulVntbigmcT7rdX3BNo9wRJg==
+
+tslib@^2.0.3:
+  version "2.0.3"
+  resolved "https://registry.yarnpkg.com/tslib/-/tslib-2.0.3.tgz#8e0741ac45fc0c226e58a17bfc3e64b9bc6ca61c"
+  integrity sha512-uZtkfKblCEQtZKBF6EBXVZeQNl82yqtDQdv+eck8u7tdPxjLu2/lp5/uPW+um2tpuxINHWy3GhiccY7QgEaVHQ==
 
 tsutils@^3.17.1:
   version "3.17.1"

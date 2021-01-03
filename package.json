@@ -34,5 +34,9 @@
       "last 1 firefox version",
       "last 1 safari version"
     ]
+  },
+  "devDependencies": {
+    "gojs": "^2.1.32",
+    "gojs-react": "^1.0.10"
   }
 }
