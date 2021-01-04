@@ -49,7 +49,7 @@ function initDiagram() {
 
   diagram.linkTemplate = $(
     go.Link,
-    { routing: go.Link.AvoidsNodes, corner: 10 },
+    { routing: go.Link.AvoidsNodes, curve: go.Link.JumpOver, corner: 10 },
     $(go.Shape),
     $(go.Shape, { toArrow: 'Standard' }),
   );

@@ -38,7 +38,6 @@ TestLayout.prototype.doLayout = function (coll) {
 
   let root = null;
   let wrap = this.wrap;
-  let breakNode = null;
 
   while (iterator.next()) {
     const node = iterator.value;
@@ -84,75 +83,16 @@ TestLayout.prototype.doLayout = function (coll) {
     const nodeBound = this.getLayoutBounds(node);
 
     if (nodeBound.x > wrap) {
-      if (!breakNode) {
-        breakNode = node;
-      }
+      const row = Math.floor(nodeBound.x / wrap);
 
-      if (nodeBound.x < this.getLayoutBounds(breakNode).x) {
-        breakNode = node;
-      }
-    }
-  }
-
-  /* const moveNode = ({ root, node }) => {
-    const nodeBound = this.getLayoutBounds(node);
-
-    if (root) {
-      const rootBound = this.getLayoutBounds(root);
-      node.move(new go.Point(rootBound.x, nodeBound.y + this.layerSpacing * 2));
-    }
-
-    node.findLinksOutOf().each(link => {
-      const toNode = link.toNode;
-      const toNodeBound = this.getLayoutBounds(toNode);
-
-      toNode.move(
+      node.move(
         new go.Point(
-          nodeBound.x + this.layerSpacing,
-          toNodeBound.y + this.layerSpacing * 2,
+          nodeBound.x - wrap * row,
+          nodeBound.y + this.layerSpacing * 2 * (row * 2),
         ),
       );
-      moveNode({ node: toNode });
-    });
-  };
-
-  moveNode({ root, node: breakNode }); */
-
-  /* 
-  node.move(
-    new go.Point(
-      go.Point.parse(root.data.loc).x,
-      nodeBound.y + this.layerSpacing * 2,
-    ),
-  );
-
-  node.findLinksOutOf().each(link => {
-    const toNode = link.toNode;
-    const toNodeBound = this.getLayoutBounds(toNode);
-
-    console.log(toNode.data, node.data.lineBreak);
-
-    toNode.move(
-      new go.Point(
-        nodeBound.x + this.layerSpacing,
-        toNodeBound.y + this.layerSpacing * 2,
-      ),
-    );
-  }); */
-
-  // node.findLinksInto().each(link => {
-  //   if (!link.fromNode.data.lineBreak) {
-  //     const toNode = link.toNode;
-  //     const toNodeBound = this.getLayoutBounds(toNode);
-
-  //     toNode.move(
-  //       new go.Point(
-  //         go.Point.parse(root.data.loc).x,
-  //         toNodeBound.y + this.layerSpacing * 2,
-  //       ),
-  //     );
-  //   }
-  // });
+    }
+  }
 
   if (diagram) {
     diagram.commitTransaction('Test Layout');
