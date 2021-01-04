@@ -5,20 +5,23 @@ import './App.css';
 // import SerpentineLayout from './SerpentineLayout';
 // import DoubleTreeLayout from './DoubleTreeLayout';
 // import ParallelLayout from './ParallelLayout';
-import LineBreakLayout from './LineBreakLayout';
 // import SwimLaneLayout from './SwimLaneLayout';
+// import LineBreakLayout from './LineBreakLayout';
+import TestLayout from './TestLayout';
 
 function initDiagram() {
   const $ = go.GraphObject.make;
   // set your license key here before creating the diagram: go.Diagram.licenseKey = "...";
   const diagram = $(go.Diagram, {
-    'undoManager.isEnabled': true, // must be set to allow for model change listening
+    'undoManager.isEnabled': true,
+    'toolManager.mouseWheelBehavior': go.ToolManager.WheelZoom,
     /* layout: $(go.LayeredDigraphLayout, {
       // layerSpacing: 200,
       // setsPortSpots: false,
     }), */
-    layout: $(LineBreakLayout, {
-      layerSpacing: 300,
+    layout: $(TestLayout, {
+      layerSpacing: 200,
+      setsPortSpots: false,
     }),
     model: $(go.GraphLinksModel, {
       linkKeyProperty: 'key',
@@ -28,23 +31,27 @@ function initDiagram() {
   // define a simple Node template
   diagram.nodeTemplate = $(
     go.Node,
-    'Auto', // the Shape will go around the TextBlock
-    new go.Binding('location', 'loc', go.Point.parse).makeTwoWay(
-      go.Point.stringify
-    ),
+    'Auto',
+    {
+      fromSpot: go.Spot.RightSide,
+      toSpot: go.Spot.LeftSide,
+    },
+    /* new go.Binding('location', 'loc', go.Point.parse).makeTwoWay(
+      go.Point.stringify,
+    ), */
     $(go.Shape, 'RoundedRectangle', {
       name: 'SHAPE',
       fill: 'lightblue',
       strokeWidth: 0,
     }),
-    $(go.TextBlock, { margin: 8 }, new go.Binding('text', 'text'))
+    $(go.TextBlock, { margin: 8 }, new go.Binding('text', 'text')),
   );
 
   diagram.linkTemplate = $(
     go.Link,
     { routing: go.Link.AvoidsNodes, corner: 10 },
     $(go.Shape),
-    $(go.Shape, { toArrow: 'Standard' })
+    $(go.Shape, { toArrow: 'Standard' }),
   );
 
   return diagram;
@@ -101,7 +108,7 @@ const links = [
   { key: 315, from: 2, to: 202 },
 ];
 
-const onModelChange = (e) => {
+const onModelChange = e => {
   // console.log(e);
 };
 
